@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>E-shop s oblečením</title>
-        <link rel="icon" type="image/x-icon" href="/images/placeholder_thumbnail.png">
+        <link rel="icon" type="image/x-icon" href="/images/placeholder_icon.png">
         <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
@@ -14,14 +14,13 @@
         <div class="filtersBar">
             <h1>FILTRE</h1>
 
-            <form>
+            <form id="filtersForm">
                 <div class="filtersItem">
-                    <input type="text" value="Názov produktu" onfocus="value=''">
-                    <button id="searchButton">Hľadať</button>
+                    <input title="Názov produktu" type="text" id="searchTextfield" value="Názov produktu" onfocus="value=''">
                 </div>
     
                 <div class="filtersItem">
-                    Veľkosti<br>
+                    <p>Veľkosti</p>
                     <input type="checkbox" id="size_XS" name="sizes" value="XS">
                     <label for="size_XS">XS</label><br>
     
@@ -39,20 +38,71 @@
                 </div>
                 
                 <div class="filtersItem">
-                    Farby<br>
-    
+                    <p>Farby</p>
+                    <input type="checkbox" id="colourPurple" name="colours" value="purple">
+                    <label for="colourPurple">fialová</label><br>
+
+                    <input type="checkbox" id="colourPink" name="colours" value="pink">
+                    <label for="colourPurple">ružová</label><br>
+
+                    <input type="checkbox" id="colourBlue" name="colours" value="blue">
+                    <label for="colourPurple">modrá</label><br>
+                    
+                    <input type="checkbox" id="colourGreen" name="colours" value="green">
+                    <label for="colourPurple">zelená</label><br>
+
+                    <input type="checkbox" id="colourYellow" name="colours" value="yellow">
+                    <label for="colourPurple">žltá</label><br>
+                    
+                    <input type="checkbox" id="colourOrange" name="colours" value="orange">
+                    <label for="colourPurple">oranžová</label><br>
+                    
+                    <input type="checkbox" id="colourRed" name="colours" value="red">
+                    <label for="colourPurple">červená</label><br>
                 </div>
+                <button id="searchButton" type="button">Hľadať</button>
+
             </form>
             
         </div>
 
-        <div class="container">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam deleniti vitae, nemo voluptates animi autem, praesentium magni itaque hic architecto assumenda laudantium quae ratione consectetur inventore blanditiis ipsum corporis!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti amet aliquam molestias deserunt doloribus incidunt doloremque hic non, unde impedit expedita debitis eligendi saepe sapiente id perspiciatis! Quae, tenetur ut?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate accusantium nostrum quis aut, doloribus illum, blanditiis sapiente tempore ab totam eaque animi debitis placeat qui facilis et hic commodi unde!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum dicta, aut saepe nam eius quidem a aliquid! Ad magni, voluptatibus assumenda repellat velit, a minus saepe maxime dolores, inventore sed!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non delectus dolorum accusantium expedita velit unde itaque temporibus officia, et assumenda numquam, earum dolor consequuntur neque adipisci sed hic, id vero?
-
+        <div class="gridContainer">
+            <div class="gridItem">
+                <img src="/images/placeholder_thumbnail.png" alt="Názov produktu">
+                <p><span class="productName">Názov produktu</span></p>
+                <p><span class="productPrice">0,00€</span></p>
+                <button>Pridať do košíka</button>
+            </div>
+            <div class="gridItem">
+                <img src="/images/placeholder_thumbnail.png" alt="Názov produktu">
+                <p><span class="productName">Názov produktu</span></p>
+                <p><span class="productPrice">0,00€</span></p>
+                <button>Pridať do košíka</button>
+            </div>
+            <div class="gridItem">
+                <img src="/images/placeholder_thumbnail2.png" alt="Názov produktu">
+                <p><span class="productName">Názov produktu</span></p>
+                <p><span class="productPrice">0,00€</span></p>
+                <button>Pridať do košíka</button>
+            </div>
+            <div class="gridItem">
+                <img src="/images/placeholder_thumbnail.png" alt="Názov produktu">
+                <p><span class="productName">Názov produktu</span></p>
+                <p><span class="productPrice">0,00€</span></p>
+                <button>Pridať do košíka</button>
+            </div>
+            <div class="gridItem">
+                <img src="/images/placeholder_thumbnail.png" alt="Názov produktu">
+                <p><span class="productName">Názov produktu</span></p>
+                <p><span class="productPrice">0,00€</span></p>
+                <button>Pridať do košíka</button>
+            </div>
+            <div class="gridItem">
+                <img src="/images/placeholder_thumbnail.png" alt="Názov produktu">
+                <p><span class="productName">Názov produktu</span></p>
+                <p><span class="productPrice">0,00€</span></p>
+                <button>Pridať do košíka</button>
+            </div>
         </div>
 
         <div class="returnToTop">
@@ -62,6 +112,6 @@
         <footer>
             this is a placeholder text
             
-        </footer>
+        </footer
     </body>
 </html>
