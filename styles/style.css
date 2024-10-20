@@ -4,6 +4,7 @@
     --containerColour: #555555;
     --textColour: #222222;
     --fontFamily: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color-scheme: light dark;
 }
 
 body {
@@ -11,26 +12,60 @@ body {
     font-family: var(--fontFamily);
     color: var(--textColour);
     background-repeat: no-repeat;
+    margin: 0px;
 }
 
 a {
     text-decoration: none;
+    color: var(--textColour);
 }
 
 .topBar {
     background-color: var(--topBarColour);
     border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
 }
 
 .filtersBar {
     background-color: var(--topBarColour);
     border-radius: 20px;
-    
+    padding: 10px;
+    margin: 10px;
 }
 
 .container {
     background-color: var(--containerColour);
     font-size: 60px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.filtersItem {
+    border: darkgray dashed 1px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.filtersItem button {
+    color: var(--textColour);
+    font-size: 20px;
+    font-family: var(--fontFamily);
+}
+
+.filtersItem input {
+    font-family: var(--fontFamily);
+}
+
+.returnToTop {
+    background-color: var(--topBarColour);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 50px;
+    border-radius: 20px;
+    padding: 5px;
 }
 
 @media screen and (min-width: 680px) {
@@ -41,6 +76,7 @@ a {
         width: 100%;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
+        margin: 0px;
     }
 
     .filtersBar {
@@ -48,18 +84,31 @@ a {
         border-bottom-left-radius: 0px;
         position: fixed;
         left: 0;
-        top: 100px;
+        top: 110px;
         padding: 20px;
+        margin: 0px;
+    }
+
+    .container {
+        margin: 110px 10px 10px 280px;
+        padding: 10px;
     }
 }
 
-.filtersItem {
-    background-color: red;
-    padding: 5px;
+@media (prefers-color-scheme: light) {
+    :root {
+        --backgroundColour: #748386;
+        --topBarColour: #ede3e4;
+        --containerColour: #555555;
+        --textColour: #222222;
+    }
 }
-
-.filtersItem button {
-    color: var(--textColour);
-    font-size: 20px;
-    font-family: var(--fontFamily);
+    
+@media (prefers-color-scheme: dark) {
+    :root {
+        --backgroundColour: #748386;
+        --topBarColour: #ede3e4;
+        --containerColour: #555555;
+        --textColour: #222222;
+    }
 }

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>E-shop s oblečením</title>
+        <link rel="icon" type="image/x-icon" href="/images/placeholder_thumbnail.png">
         <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
@@ -12,10 +13,36 @@
 
         <div class="filtersBar">
             <h1>FILTRE</h1>
-            <div class="filtersItem">
-                <input>
-                <button>Hľadať</button>
-            </div>
+
+            <form>
+                <div class="filtersItem">
+                    <input type="text" value="Názov produktu" onfocus="value=''">
+                    <button id="searchButton">Hľadať</button>
+                </div>
+    
+                <div class="filtersItem">
+                    Veľkosti<br>
+                    <input type="checkbox" id="size_XS" name="sizes" value="XS">
+                    <label for="size_XS">XS</label><br>
+    
+                    <input type="checkbox" id="size_S" name="sizes" value="S">
+                    <label for="size_S">S</label><br>
+    
+                    <input type="checkbox" id="size_M" name="sizes" value="M">
+                    <label for="size_M">M</label><br>
+    
+                    <input type="checkbox" id="size_L" name="sizes" value="L">
+                    <label for="size_L">L</label><br>
+    
+                    <input type="checkbox" id="size_XL" name="sizes" value="XL">
+                    <label for="size_XL">XL</label><br>
+                </div>
+                
+                <div class="filtersItem">
+                    Farby<br>
+    
+                </div>
+            </form>
             
         </div>
 
@@ -28,8 +55,13 @@
 
         </div>
 
+        <div class="returnToTop">
+            <a href="#">▲</a>
+        </div>
+
         <footer>
             this is a placeholder text
+            
         </footer>
     </body>
 </html>
