@@ -1,5 +1,5 @@
 :root {
-    --backgroundColour: #748386;
+    --backgroundColour: #848484;
     --barColour: #ede3e4;
     --containerBgColour: #555555;
     --textColour: #222222;
@@ -27,6 +27,19 @@ a {
     border-bottom-right-radius: 20px;
     padding: 10px;
     margin: 0px 10px 10px;
+    height: 80px;
+    vertical-align: bottom;
+    display: flex;
+}
+
+.topBar .spacer {
+    flex:1;
+}
+
+.topBar img {
+    height: 80px;
+    border: black solid 1px;
+    border-radius: 40px;
 }
 
 .filtersBar {
@@ -34,6 +47,36 @@ a {
     border-radius: 20px;
     padding: 20px 10px 10px;
     margin: 10px;
+}
+
+.footer {
+    background-color: var(--barColour);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0px 10px;
+    padding: 20px 50px;
+    display: flex;
+    font-size: 20px;
+}
+
+.loginForm {
+    height: 100vh;
+}
+
+.footer a {
+    display: list-item;
+}
+
+.insideLinks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.outsideLinks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .gridContainer {
@@ -97,6 +140,7 @@ a {
     color: var(--textColour);
     font-size: 20px;
     font-family: var(--fontFamily);
+    font-size: 25px;
 }
 
 .filtersItem input {
@@ -111,6 +155,7 @@ a {
 .filtersItem input:nth-child(1) {
     width: 98%;
     font-size: 25px;
+    color: var(--textColour);
 }
 
 .filtersItem input {
@@ -137,6 +182,12 @@ a {
         right: 0;
         margin: 0px;
         padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer {
+        margin: 0px;
+        padding: 20px 150px;
     }
 
     .filtersBar {
@@ -149,6 +200,10 @@ a {
         padding-bottom: 10px;
         margin: 0px;
         width: 230px;
+    }
+
+    .filtersBar button {
+        font-size: 16px;
     }
 
     .gridContainer {
@@ -192,7 +247,7 @@ a {
     }
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
     :root {
         --backgroundColour: #748386;
         --barColour: #ede3e4;
@@ -208,4 +263,4 @@ a {
         --containerBgColour: #555555;
         --textColour: #222222;
     }
-}
+} */
