@@ -1,10 +1,65 @@
 :root {
-    --backgroundColour: #aa32ff;
-    --textColour : #000000;
+    --backgroundColour: #748386;
+    --topBarColour: #ede3e4;
+    --containerColour: #555555;
+    --textColour: #222222;
+    --fontFamily: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
     background-color: var(--backgroundColour);
+    font-family: var(--fontFamily);
     color: var(--textColour);
     background-repeat: no-repeat;
+}
+
+a {
+    text-decoration: none;
+}
+
+.topBar {
+    background-color: var(--topBarColour);
+    border-radius: 20px;
+}
+
+.filtersBar {
+    background-color: var(--topBarColour);
+    border-radius: 20px;
+    
+}
+
+.container {
+    background-color: var(--containerColour);
+    font-size: 60px;
+}
+
+@media screen and (min-width: 680px) {
+    .topBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .filtersBar {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        position: fixed;
+        left: 0;
+        top: 100px;
+        padding: 20px;
+    }
+}
+
+.filtersItem {
+    background-color: red;
+    padding: 5px;
+}
+
+.filtersItem button {
+    color: var(--textColour);
+    font-size: 20px;
+    font-family: var(--fontFamily);
 }
