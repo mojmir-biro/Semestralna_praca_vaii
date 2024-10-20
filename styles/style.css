@@ -1,0 +1,10 @@
+:root {
+    --backgroundColour: #aa32ff;
+    --textColour : #000000;
+}
+
+body {
+    background-color: var(--backgroundColour);
+    color: var(--textColour);
+    background-repeat: no-repeat;
+}
