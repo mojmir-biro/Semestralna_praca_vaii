@@ -39,4 +39,9 @@ class HomeController extends AControllerBase
     {
         return $this->html();
     }
+
+    public function faq(): Response
+    {
+        return $this->html();
+    }
 }

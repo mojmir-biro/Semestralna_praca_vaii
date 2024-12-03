@@ -4,7 +4,7 @@
     --containerBgColour: #555555;
     --textColour: #222222;
     --gridItemBgColour: white;
-    --fontFamily: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --fontFamily: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     /* color-scheme: light dark; */
 }
 
@@ -56,7 +56,12 @@ a {
     margin: 0px 10px;
     padding: 20px 50px;
     display: flex;
+    flex-direction: column;
     font-size: 20px;
+}
+
+.footer h3 {
+    margin-bottom: 0;
 }
 
 .loginForm {
@@ -227,6 +232,7 @@ a {
     .footer {
         margin: 0px;
         padding: 20px 150px;
+        flex-direction: row;
     }
 
     .loginForm {

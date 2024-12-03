@@ -1,3 +1,7 @@
+#This project uses Vaiicko FW
+
+About Vaiicko FW:
+
 # O tomto frameworku
 
 Tento framework vznikol na podporu výučby predmetu Vývoj aplikácií pre intranet a intrenate (VAII)

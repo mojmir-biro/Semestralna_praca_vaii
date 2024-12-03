@@ -15,7 +15,7 @@ class Configuration
     /**
      * App name
      */
-    public const APP_NAME = 'Vaííčko MVC FW';
+    public const APP_NAME = 'E-shop s oblečením';
     public const FW_VERSION = '2.2';
 
     /**
