@@ -1,7 +1,7 @@
 <?php
 
+$layout = 'root';
 /** @var \App\Core\IAuthenticator $auth */ ?>
-
 
 <div class="container">
     Vitaj, <strong><?= $auth->getLoggedUserName() ?></strong>!<br><br>
