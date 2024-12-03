@@ -73,6 +73,7 @@ a {
     font-size: 25px;
     justify-self: center;
     margin-top: 100px;
+    width: 400px;
 }
 
 .loginForm button {
@@ -80,12 +81,20 @@ a {
     font-family: var(--fontFamily);
     font-size: 25px;
     margin-top: 10px;
+    align-self: center;
+    border-radius: 5px;
 }
 
 .loginForm input {
     color: var(--textColour);
     font-family: var(--fontFamily);
     font-size: 25px;
+    border-radius: 5px;
+}
+
+.incorrectLogin {
+    color: red;
+    text-align: center;
 }
 
 .questionHeader {

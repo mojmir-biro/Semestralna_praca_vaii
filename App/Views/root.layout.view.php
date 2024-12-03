@@ -17,7 +17,14 @@
             <img src="public/images/placeholder_icon.png" alt="logo">
             <a href="<?= $link->url("home.index") ?>"><h1>E-shop</h1></a>
             <p class="spacer"></p>
-            <a href=<?= \App\Config\Configuration::LOGIN_URL ?>><h1>Prihlásenie</h1></a>
+
+
+            <?php if ($auth->isLogged()) { ?>
+                <a href="<?= $link->url("admin.index") ?>"><h1><?= $auth->getLoggedUserId() ?></h1></a>
+            <?php } else { ?>
+                <a href=<?= \App\Config\Configuration::LOGIN_URL ?>><h1>Prihlásenie</h1></a>
+            <?php } ?>
+
         </div>
 
         <?= $contentHTML ?>
@@ -29,7 +36,7 @@
         <div class="footer">
             <div class="insideLinks">
                 <h3>Odkazy</h3>
-                <a href=<?= $link->url("home.faq") ?>>FAQ</a>
+                <a href="<?= $link->url("home.faq") ?>">FAQ</a>
                 <a>Kontakt</a>
                 <a href="login_form.html">Prihlásenie</a>
             </div>
