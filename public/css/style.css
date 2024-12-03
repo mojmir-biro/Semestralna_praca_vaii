@@ -57,7 +57,7 @@ a {
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .footer h3 {
@@ -240,8 +240,10 @@ a {
 
     .footer {
         margin: 0px;
+        margin-top: 20px;
         padding: 20px 150px;
         flex-direction: row;
+        font-size: 20px;
     }
 
     .loginForm {
