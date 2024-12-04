@@ -243,6 +243,7 @@ a {
 
 .listHeader {
     font-weight: bold;
+    font-size: 120%;
 }
 
 .listItem {
@@ -253,6 +254,10 @@ a {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
+}
+
+.listItem button:hover {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 660px) {

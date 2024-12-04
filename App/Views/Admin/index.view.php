@@ -1,5 +1,8 @@
 <?php
 
+use App\App;
+use App\Models\Product;
+
 $layout = 'root';
 /** @var \App\Core\IAuthenticator $auth */ ?>
 
@@ -17,18 +20,24 @@ $layout = 'root';
             <div class="listCol">Cena</div>
             <div class="listCol">
                 Akcie
-                <button>Pridať produkt</button>
+                <a href="<?= $link->url('product.add') ?>"><button>Pridať produkt</button></a>
             </div>
         </div>
-        <div class="listItem">
-            <div class="listCol">0000000001</div>
-            <div class="listCol">Nike Air Jordan 1 Mid Retro Red</div>
-            <div class="listCol">169,99</div>
-            <div class="listCol">
-                <button>Upraviť</button>
-                <button>Vymazať</button>
+        
+        <?php foreach (Product::getAll() as $product): ?>
+
+            <div class="listItem">
+                <div class="listCol"><?= $product->getId() ?></div>
+                <div class="listCol"><?= $product->getName() ?></div>
+                <div class="listCol"><?= $product->getPrice() ?></div>
+                <div class="listCol">
+                    <a href="<?= $link->url('product.edit', ['id' => $product->getId()]) ?>"><button>Upraviť</button></a>
+                    <a href="<?= $link->url('product.delete', ['id' => $product->getId()]) ?>"><button>Vymazať</button></a>
+                </div>
             </div>
-        </div>
+
+        <?php endforeach; ?>
+
     </div>
 
 </div>
