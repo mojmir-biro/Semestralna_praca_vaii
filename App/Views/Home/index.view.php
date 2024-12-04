@@ -42,41 +42,8 @@
     </form>   
 </div>
 
-<div class="gridContainer">
-    <div class="gridItem">
-        <img src="public/images/placeholder_thumbnail2.png" alt="Názov produktu">
-        <p><span class="productName">Názov produktu</span></p>
-        <p><span class="productPrice">0,00€</span></p>
-        <button>Pridať do košíka</button>
-    </div>
-    <div class="gridItem">
-        <img src="public/images/placeholder_thumbnail.png" alt="Názov produktu">
-        <p><span class="productName">Názov produktu</span></p>
-        <p><span class="productPrice">0,00€</span></p>
-        <button>Pridať do košíka</button>
-    </div>
-    <div class="gridItem">
-        <img src="public/images/placeholder_thumbnail2.png" alt="Názov produktu">
-        <p><span class="productName">Názov produktu</span></p>
-        <p><span class="productPrice">0,00€</span></p>
-        <button>Pridať do košíka</button>
-    </div>
-    <div class="gridItem">
-        <img src="public/images/placeholder_thumbnail.png" alt="Názov produktu">
-        <p><span class="productName">Názov produktu</span></p>
-        <p><span class="productPrice">0,00€</span></p>
-        <button>Pridať do košíka</button>
-    </div>
-    <div class="gridItem">
-        <img src="public/images/placeholder_thumbnail2.png" alt="Názov produktu">
-        <p><span class="productName">Názov produktu</span></p>
-        <p><span class="productPrice">0,00€</span></p>
-        <button>Pridať do košíka</button>
-    </div>
-    <div class="gridItem">
-        <img src="public/images/placeholder_thumbnail.png" alt="Názov produktu">
-        <p><span class="productName">Názov produktu</span></p>
-        <p><span class="productPrice">0,00€</span></p>
-        <button>Pridať do košíka</button>
-    </div>
+<script src="/public/js/script.js"></script>
+
+<div class="gridContainer" id="productGrid">
+    
 </div>

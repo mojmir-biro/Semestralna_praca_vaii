@@ -36,6 +36,12 @@ class AuthController extends AControllerBase
             if ($logged) {
                 return $this->redirect($this->url("admin.index"));
             }
+            
+            // if ($logged->admin) {
+            //     return $this->redirect($this->url("admin.index"));
+            // } else {
+            //     return $this->redirect($this->url("customer.index"));
+            // }
         }
 
         $data = ($logged === false ? ['message' => 'Nesprávne prihlasovacie údaje'] : []);

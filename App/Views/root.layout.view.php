@@ -18,7 +18,6 @@
             <a href="<?= $link->url("home.index") ?>"><h1>E-shop</h1></a>
             <p class="spacer"></p>
 
-
             <?php if ($auth->isLogged()) { ?>
                 <a href="<?= $link->url("admin.index") ?>"><h1><?= $auth->getLoggedUserId() ?></h1></a>
             <?php } else { ?>

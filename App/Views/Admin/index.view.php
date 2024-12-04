@@ -11,6 +11,14 @@ $layout = 'root';
     Táto časť aplikácie je prístupná len po prihlásení.
     <a href="<?= $link->url("auth.logout") ?>"><h3>Odhlásenie</h3></a>
 
+    <!-- Výsledok poslednej akcie:
+    
+    <?php if (@$data['result'] != null) { ?>
+        <?= @$data['result'] ?>
+    <?php } else { ?>
+        Žiadna akcia
+    <?php } ?> -->
+
     <h2>Zoznam produktov</h2>
 
     <div class="listProducts">
