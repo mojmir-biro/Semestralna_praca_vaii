@@ -227,12 +227,17 @@ a {
     padding: 5px;
 }
 
+.logout {
+    font-size: 32px;
+}
+
 .listProducts {
     display: flex;
     flex-direction: column;
     padding: 5px;
     border-radius: 5px;
     background-color: var(--containerBgColour);
+    font-size: 24px;
 }
 
 .listCol {
@@ -256,8 +261,25 @@ a {
     border-radius: 5px;
 }
 
+.listItem button {
+    font-size: 24px;
+}
+
 .listItem button:hover {
     cursor: pointer;
+}
+
+.productForm {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--containerBgColour);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 24px;
+}
+
+.productForm button input { 
+    font-size: 24px;
 }
 
 @media screen and (min-width: 660px) {
@@ -338,6 +360,26 @@ a {
     .returnToTop {
         left: 5px;
         right: auto;
+    }
+
+    .listProducts {
+        font-size: 18px;
+    }
+
+    .listItem button {
+        font-size: 16px;
+    }
+
+    .logout {
+        font-size: 16px;
+    }
+
+    .productForm {
+        font-size: 16px;
+    }
+
+    .productForm button input { 
+        font-size: 16px;
     }
 }
 

@@ -7,9 +7,7 @@ $layout = 'root';
 /** @var \App\Core\IAuthenticator $auth */ ?>
 
 <div class="container">
-    Vitaj, <strong><?= $auth->getLoggedUserName() ?></strong>!<br><br>
-    Táto časť aplikácie je prístupná len po prihlásení.
-    <a href="<?= $link->url("auth.logout") ?>"><h3>Odhlásenie</h3></a>
+    <a href="<?= $link->url("auth.logout") ?>"><span class="logout">Odhlásenie<span></a>
 
     <!-- Výsledok poslednej akcie:
     
@@ -19,7 +17,7 @@ $layout = 'root';
         Žiadna akcia
     <?php } ?> -->
 
-    <h2>Zoznam produktov</h2>
+    <h1>Zoznam produktov</h1>
 
     <div class="listProducts">
         <div class="listHeader listItem">
