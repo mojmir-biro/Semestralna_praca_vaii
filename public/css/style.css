@@ -1,5 +1,5 @@
 :root {
-    --backgroundColour: #848484;
+    --backgroundColour: #adadad;
     --barColour: #ede3e4;
     --containerBgColour: #555555;
     --textColour: #222222;
@@ -225,6 +225,34 @@ a {
     border-radius: 20px;
     border: var(--textColour) solid 2px;
     padding: 5px;
+}
+
+.listProducts {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--containerBgColour);
+}
+
+.listCol {
+    width: 25%;
+    border-left: 2px solid var(--textColour);
+    padding-left: 5px;
+}
+
+.listHeader {
+    font-weight: bold;
+}
+
+.listItem {
+    display: flex;
+    gap: 10px;
+    width: auto;
+    background-color: var(--barColour);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 @media screen and (min-width: 660px) {
