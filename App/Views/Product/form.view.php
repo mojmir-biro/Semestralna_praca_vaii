@@ -6,5 +6,5 @@
     <input required type="text" name="price" id="price" value="<?= @$data['product']?->getPrice() ?>">
     <label for="thumbnail">Titulný obrázok:</label>
     <input required type="text" name="thumbnail" id="thumbnail" value="<?= @$data['product']?->getThumbnail() ?>">
-    <button type="submit">Pridať</button>
+    <button type="submit">Uložiť</button>
 </form>
