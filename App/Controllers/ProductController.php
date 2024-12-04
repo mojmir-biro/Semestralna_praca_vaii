@@ -24,8 +24,11 @@ class ProductController extends AControllerBase
         switch ($action) {
             case 'edit':
             case 'delete':
-            default:
             case 'add':
+                return $this->app->getAuth()->isLogged();
+            case 'getjson':
+                return true;
+            default:
                 return $this->app->getAuth()->isLogged();
         }
     }
