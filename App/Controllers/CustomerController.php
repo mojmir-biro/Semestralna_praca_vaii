@@ -7,11 +7,10 @@ use App\Core\Responses\Response;
 use App\Models\User;
 
 /**
- * Class HomeController
- * Example class of a controller
+ * 
  * @package App\Controllers
  */
-class AdminController extends AControllerBase
+class CustomerController extends AControllerBase
 {
     /**
      * Authorize controller actions
@@ -23,7 +22,7 @@ class AdminController extends AControllerBase
         if ($this->app->getAuth()->isLogged()) {
             $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
             $user = $queryResult[0];
-            return (strcmp($user->getRole(), 'admin') === 0);
+            return (strcmp($user->getRole(), 'customer') === 0);
         }
         return false;
     }

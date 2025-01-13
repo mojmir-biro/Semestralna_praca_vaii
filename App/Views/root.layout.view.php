@@ -19,7 +19,7 @@
             <p class="spacer"></p>
 
             <?php if ($auth->isLogged()) { ?>
-                <a href="<?= $link->url("admin.index") ?>"><h1><?= $auth->getLoggedUserId() ?></h1></a>
+                <a href="<?= $link->url("auth.home") ?>"><h1><?= $auth->getLoggedUserId() ?></h1></a>
             <?php } else { ?>
                 <a href=<?= \App\Config\Configuration::LOGIN_URL ?>><h1>Prihlásenie</h1></a>
             <?php } ?>
@@ -38,12 +38,14 @@
                 <a href="<?= $link->url("home.faq") ?>">FAQ</a>
                 <a>Kontakt</a>
                 <a href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
+                <a href="<?= $link->url("auth.register") ?>">Registrácia</a>
+                <a href="<?= $link->url("auth.logout") ?>">Odhlásenie</a>
             </div>
             <div class="outsideLinks">
                 <h3>Sociálne siete</h3>
-                <a href="" target="blank">X</a>
-                <a href="" target="blank">Instagram</a>
-                <a href="" target="blank">Facebook</a>
+                <a href="https://x.com" target="blank">X</a>
+                <a href="https://instagram.com" target="blank">Instagram</a>
+                <a href="https://facebook.com" target="blank">Facebook</a>
             </div>
         </div>
     </body>

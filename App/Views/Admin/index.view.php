@@ -7,7 +7,7 @@ $layout = 'root';
 /** @var \App\Core\IAuthenticator $auth */ ?>
 
 <div class="container">
-    <a href="<?= $link->url("auth.logout") ?>"><span class="logout">Odhlásenie<span></a>
+    
 
     
     <!-- Výsledok poslednej akcie:
@@ -17,7 +17,9 @@ $layout = 'root';
         Žiadna akcia
     <?php } ?> -->
 
-    <h1>Zoznam produktov</h1>
+    <div class="sectionHeader">
+        Zoznam produktov
+    </div>
 
     <div class="listProducts">
         <div class="listHeader listItem">

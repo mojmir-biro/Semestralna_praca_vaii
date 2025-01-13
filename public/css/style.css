@@ -297,6 +297,21 @@ a {
     font-size: 24px;
 }
 
+.section {
+    background-color: var(--barColour);
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.sectionHeader {
+    background-color: var(--containerBgColour);
+    font-size: 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
 @media screen and (min-width: 660px) {
     .topBar {
         position: fixed;

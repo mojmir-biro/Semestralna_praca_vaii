@@ -63,7 +63,7 @@ class DatabaseAuthenticator implements IAuthenticator
      */
     public function getLoggedUserContext(): mixed
     {
-        return null;
+        return User::class;
     }
 
     /**

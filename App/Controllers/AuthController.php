@@ -30,12 +30,16 @@ class AuthController extends AControllerBase
      */
     public function login(): Response
     {
+        if ($this->app->getAuth()->isLogged()) {
+            return $this->redirect($this->url("auth.home"));
+        }
+
         $formData = $this->app->getRequest()->getPost();
         $logged = null;
         if (isset($formData['submit'])) {
             $logged = $this->app->getAuth()->login($formData['email'], $formData['password']);
             if ($logged) {
-                return $this->redirect($this->url("admin.index"));
+                return $this->redirect($this->url("auth.home"));
             }
             
             // if ($logged->admin) {
@@ -51,6 +55,10 @@ class AuthController extends AControllerBase
 
     public function register(): Response
     {
+        if ($this->app->getAuth()->isLogged()) {
+            return $this->redirect($this->url("auth.home"));
+        }
+
         $formData = $this->app->getRequest()->getPost();
         if (isset($formData['submit'])) {
             $name = strip_tags($formData['name']);
@@ -124,6 +132,21 @@ class AuthController extends AControllerBase
     public function logout(): Response
     {
         $this->app->getAuth()->logout();
+        return $this->redirect($this->url("home.index"));
+    }
+
+    public function home(): Response
+    {
+        if ($this->app->getAuth()->isLogged()) {
+            $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
+            $user = $queryResult[0];
+            if (strcmp($user->getRole(), 'admin') === 0) {
+                return $this->redirect($this->url("admin.index"));
+            }
+            if (strcmp($user->getRole(), 'customer') === 0) {
+                return $this->redirect($this->url("customer.index"));
+            }
+        }
         return $this->redirect($this->url("home.index"));
     }
 }
