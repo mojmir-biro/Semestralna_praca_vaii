@@ -37,7 +37,7 @@
                 <h3>Odkazy</h3>
                 <a href="<?= $link->url("home.faq") ?>">FAQ</a>
                 <a>Kontakt</a>
-                <a href="login_form.html">Prihlásenie</a>
+                <a href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
             </div>
             <div class="outsideLinks">
                 <h3>Sociálne siete</h3>

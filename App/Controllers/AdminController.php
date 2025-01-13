@@ -28,6 +28,7 @@ class AdminController extends AControllerBase
      */
     public function index(): Response
     {
+        //die($this->app->getRequest()->getValue('result'));
         return $this->html();
     }
 }

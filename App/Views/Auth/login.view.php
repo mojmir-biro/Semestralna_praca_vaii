@@ -17,5 +17,11 @@ $layout = 'root';
                 <span class="incorrectLogin"><?= @$data['message'] ?></span>
             </div>
         </form>
+        <a href="<?= $link->url('auth.register') ?>">
+            <div class="loginForm">
+                Ešte nemáte účet? Zaregistrujte sa teraz.
+            </div>
+        </a>
     </div>
+    
 </div>

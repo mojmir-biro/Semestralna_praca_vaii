@@ -163,7 +163,10 @@ a {
 
 .gridItem img {
     border-radius: 10px;
-    width: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .gridItem p {
@@ -229,6 +232,18 @@ a {
 
 .logout {
     font-size: 32px;
+}
+
+.sizeRow {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.sizeCol {
+    width: 50%;
 }
 
 .listProducts {

@@ -9,8 +9,8 @@ $layout = 'root';
 <div class="container">
     <a href="<?= $link->url("auth.logout") ?>"><span class="logout">Odhlásenie<span></a>
 
-    <!-- Výsledok poslednej akcie:
     
+    <!-- Výsledok poslednej akcie:
     <?php if (@$data['result'] != null) { ?>
         <?= @$data['result'] ?>
     <?php } else { ?>
