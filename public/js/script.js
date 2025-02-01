@@ -19,12 +19,13 @@ class ProductGetter {
         let stringHTML = "";
         products.forEach(element => {
             stringHTML += `
-            <div class="gridItem">
-                <img src="public/images/${element.thumbnail}" alt="${element.name}">
-                <p><span class="productName">${element.name}</span></p>
-                <p><span class="productPrice">${element.price}</span></p>
-                <button>Pridať do košíka</button>
-            </div>
+            <a href="./?c=product&a=display&id=${element.id}">
+                <div class="gridItem">
+                    <img src="public/images/${element.thumbnail}" alt="${element.name}">
+                    <p><span class="productName">${element.name}</span></p>
+                    <p><span class="productPrice">${element.price}</span></p>
+                </div>
+            </a>
             `
         });
         grid.innerHTML = stringHTML;

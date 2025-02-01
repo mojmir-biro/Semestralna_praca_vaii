@@ -10,6 +10,7 @@ use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Models\Product;
 use App\Models\ProductSize;
+use App\Models\User;
 use http\Exception;
 use PDO;
 
@@ -23,14 +24,17 @@ class ProductController extends AControllerBase
     public function authorize($action)
     {
         switch ($action) {
-            case 'edit':
-            case 'delete':
-            case 'add':
-                return $this->app->getAuth()->isLogged();
             case 'getJson':
+            case 'display':
                 return true;
             default:
-                return $this->app->getAuth()->isLogged();
+                //return $this->app->getAuth()->isLogged();
+                if ($this->app->getAuth()->isLogged()) {
+                    $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
+                    $user = $queryResult[0];
+                    return (strcmp($user->getRole(), 'admin') === 0);
+                }
+                return false;
         }
     }
 
@@ -127,7 +131,7 @@ class ProductController extends AControllerBase
             $product->setThumbnail($filename);
         }
         */
-        
+
         $product->save();
         $id = $product->getId();
 
@@ -153,5 +157,21 @@ class ProductController extends AControllerBase
             $product->delete();
             return new RedirectResponse($this->url("admin.index"));
         }
+    }
+
+    public function display(): Response
+    {
+        $id = (int)$this->request()->getValue('id');
+        $product = Product::getOne($id);
+
+        if (is_null($product)) {
+            throw new HTTPException(404);
+        }
+
+        return $this->html(
+            [
+                'product' => $product
+            ]
+        );
     }
 }

@@ -23,20 +23,21 @@
             <input type="checkbox" id="colourPurple" name="colours" value="purple">
             <label for="colourPurple">fialová</label><br>
             <input type="checkbox" id="colourPink" name="colours" value="pink">
-            <label for="colourPurple">ružová</label><br>
+            <label for="colourPink">ružová</label><br>
             <input type="checkbox" id="colourBlue" name="colours" value="blue">
-            <label for="colourPurple">modrá</label><br>
-            
+            <label for="colourBlue">modrá</label><br>
             <input type="checkbox" id="colourGreen" name="colours" value="green">
-            <label for="colourPurple">zelená</label><br>
+            <label for="colourGreen">zelená</label><br>
             <input type="checkbox" id="colourYellow" name="colours" value="yellow">
-            <label for="colourPurple">žltá</label><br>
-            
+            <label for="colourYellow">žltá</label><br>
             <input type="checkbox" id="colourOrange" name="colours" value="orange">
-            <label for="colourPurple">oranžová</label><br>
-            
+            <label for="colourOrange">oranžová</label><br>
             <input type="checkbox" id="colourRed" name="colours" value="red">
-            <label for="colourPurple">červená</label><br>
+            <label for="colourRed">červená</label><br>
+            <input type="checkbox" id="colourWhite" name="colours" value="white">
+            <label for="colourWhite">biela</label><br>
+            <input type="checkbox" id="colourBlack" name="colours" value="black">
+            <label for="colourBlack">čierna</label><br>
         </div>
         <button id="searchButton" type="submit">Hľadať</button>
     </form>   

@@ -10,6 +10,7 @@ class Product extends Model
     protected ?string $name;
     protected ?float $price;
     protected ?string $thumbnail;
+    protected ?string $colour;
 
     public function getId(): ?int
     {
@@ -31,7 +32,7 @@ class Product extends Model
         return $this->price;
     }
 
-    public function setPrice(string $price): void
+    public function setPrice(float $price): void
     {
         $this->price = $price;
     }
@@ -44,5 +45,15 @@ class Product extends Model
     public function setThumbnail(string $thumbnail): void
     {
         $this->thumbnail = $thumbnail;
+    }
+
+    public function getColour(): ?string
+    {
+        return $this->colour;
+    }
+
+    public function setColour(string $colour): void
+    {
+        $this->colour = $colour;
     }
 }
