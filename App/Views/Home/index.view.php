@@ -2,7 +2,7 @@
     <h1>FILTRE</h1>
     <form id="filtersForm">
         <div class="filtersItem">
-            <input title="Názov produktu" type="text" id="searchTextfield" value="Názov produktu" onfocus="value=''">
+            <input title="Názov produktu" type="text" id="searchTextfield" placeholder="Názov produktu">
         </div>
         <div class="filtersItem">
             <p>Veľkosti</p>

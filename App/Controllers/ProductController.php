@@ -79,9 +79,10 @@ class ProductController extends AControllerBase
 
         $price = (double)$this->request()->getValue('price');
         $name = strip_tags($this->request()->getValue('productName'));
+        $colour = strip_tags($this->request()->getValue('colour'));
         $thumbnail = strip_tags($this->request()->getValue('thumbnail'));
 
-        if ($price == 0 || $name == '' || $thumbnail == '') {
+        if ($price == 0 || $name == '' || $thumbnail == '' || $colour == '') {
             return new RedirectResponse($this->url("admin.index", ['result' => 'Required field/s not filled']));
         }
         
@@ -114,6 +115,7 @@ class ProductController extends AControllerBase
 
         $product->setPrice($price);
         $product->setName($name);
+        $product->setColour($colour);
         $product->setThumbnail($thumbnail);
 
         /*

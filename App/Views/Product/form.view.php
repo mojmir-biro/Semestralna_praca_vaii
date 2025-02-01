@@ -12,6 +12,8 @@ $layout = 'root';
         <input required type="text" name="productName" id="productName" value="<?= @$data['product']?->getName() ?>">
         <label for="price">Cena:</label>
         <input required type="text" name="price" id="price" value="<?= @$data['product']?->getPrice() ?>">
+        <label for="colour">Farba</label>
+        <input type="text" name="colour" id="colour" value="<?= @$data['product']?->getColour() ?>">
         <label for="thumbnail">Titulný obrázok:</label>
         <input required type="text" name="thumbnail" id="thumbnail" value="<?= @$data['product']?->getThumbnail() ?>">
 
