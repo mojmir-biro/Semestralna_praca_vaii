@@ -5,7 +5,7 @@ use App\Models\ProductSize;
 $layout = 'root'; 
 ?>
 
-<form action="<?= $link->url('product.save') ?>" method="post">
+<form action="<?= $link->url('product.save') ?>" method="post" enctype="multipart/form-data">
     <div class="productForm">
         <input type="hidden" name="id" value="<?= @$data['product']?->getId() ?>">
         <label for="productName">Názov produktu:</label>
@@ -14,6 +14,9 @@ $layout = 'root';
         <input required type="text" name="price" id="price" value="<?= @$data['product']?->getPrice() ?>">
         <label for="thumbnail">Titulný obrázok:</label>
         <input required type="text" name="thumbnail" id="thumbnail" value="<?= @$data['product']?->getThumbnail() ?>">
+
+        <label for="image">Obrázok</label>
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg"/>
 
         <?php foreach (ProductSize::getAll('`productId` = ?', [@$data['product']?->getId()]) as $productSize): ?>
             <div class="sizeRow">

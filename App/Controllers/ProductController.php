@@ -111,6 +111,23 @@ class ProductController extends AControllerBase
         $product->setPrice($price);
         $product->setName($name);
         $product->setThumbnail($thumbnail);
+
+        /*
+        //$filename = $this->request()->getValue('image');
+        //$filename = $_POST['image'];
+        $filename = $_FILES['image']['name'];
+        $img = file_get_contents($filename);
+        if ($img === false) {
+            if (!($id > 0)) {
+                return new RedirectResponse($this->url("admin.index", ['result' => 'Image field not filled']));
+            }
+        } else {
+            $folder = '../../public/images/';
+            file_put_contents($folder . $filename, $img);
+            $product->setThumbnail($filename);
+        }
+        */
+        
         $product->save();
         $id = $product->getId();
 
