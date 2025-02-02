@@ -10,6 +10,8 @@ use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Models\Basket;
 use App\Models\BasketItem;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductSize;
 use App\Models\User;
@@ -36,7 +38,6 @@ class BasketController extends AControllerBase
             case 'remove':
             case 'delete':
             case 'confirm':
-                //return $this->app->getAuth()->isLogged();
                 if ($this->app->getAuth()->isLogged()) {
                     $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
                     $user = $queryResult[0];
@@ -54,7 +55,6 @@ class BasketController extends AControllerBase
      */
     public function index(): Response
     {
-        //die($this->app->getRequest()->getValue('result'));
         return $this->html();
     }
 
@@ -109,19 +109,56 @@ class BasketController extends AControllerBase
 
     public function remove(): Response
     {
-        $this->removeBasketItem($this->app->getRequest()->getValue('id'));
-        return $this->redirect($this->url('basket.index'));
+        $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
+        $user = $queryResult[0];
+        $basketItemId = $this->app->getRequest()->getValue('id');
+        $bi = BasketItem::getOne($basketItemId);
+        $basket = Basket::getOne($bi->getBasketId());
+
+        if ($basket->getCustomerId() === $user->getId()) {
+            $this->removeBasketItem($basketItemId);
+            return $this->redirect($this->url('basket.index'));
+        } else {
+            throw new HTTPException(403);
+        }
     }
 
     public function delete(): Response
     {
-        $this->deleteBasket($this->app->getRequest()->getValue('id'));
-        return $this->redirect($this->url('basket.index'));
+        $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
+        $user = $queryResult[0];
+        $basketId = $this->app->getRequest()->getValue('id');
+        $basket = Basket::getOne($basketId);
+        if ($basket->getCustomerId() === $user->getId()) {
+            $this->deleteBasket($basketId);
+            return $this->redirect($this->url('basket.index'));
+        } else {
+            throw new HTTPException(403);
+        }
     }
 
     public function confirm(): Response
     {
-        return $this->redirect($this->url('basket.index'));
+        $queryResult = User::getAll('`email` = ?', [$this->app->getAuth()->getLoggedUserId()]);
+        $user = $queryResult[0];
+        $basketId = $this->app->getRequest()->getValue('id');
+        $basket = Basket::getOne($basketId);
+        if ($basket->getCustomerId() === $user->getId()) {
+            $order = new Order();
+            $order->setCustomerId($user->getId());
+            $order->save();
+            foreach (BasketItem::getAll('`basketId` = ?', [$basket->getId()]) as $item) {
+                $orderItem = new OrderItem();
+                $orderItem->setProductSizeId($item->getProductSizeId());
+                $orderItem->setQuantity($item->getQuantity());
+                $orderItem->setOrderId($order->getId());
+                $orderItem->save();
+            }
+            $this->deleteBasket($basketId);
+            return $this->redirect($this->url('customer.index'));
+        } else {
+            throw new HTTPException(403);
+        }
     }
 
     private function removeBasketItem(int $basketItemId): void
