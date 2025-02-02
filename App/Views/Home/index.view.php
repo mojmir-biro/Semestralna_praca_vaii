@@ -1,6 +1,6 @@
 <div class="filtersBar">
     <h1>FILTRE</h1>
-    <form id="filtersForm">
+    <!--<form id="filtersForm">-->
         <div class="filtersItem">
             <input title="Názov produktu" type="text" id="searchTextfield" placeholder="Názov produktu">
         </div>
@@ -39,8 +39,8 @@
             <input type="checkbox" id="colourBlack" name="colours" value="black">
             <label for="colourBlack">čierna</label><br>
         </div>
-        <button id="searchButton" type="submit">Hľadať</button>
-    </form>   
+        <button id="searchButton">Hľadať</button>
+    <!--</form>   -->
 </div>
 
 <script src="/public/js/script.js"></script>

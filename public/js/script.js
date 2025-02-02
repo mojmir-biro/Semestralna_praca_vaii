@@ -14,16 +14,59 @@ class ProductGetter {
     }
 
     async showProducts() {
+        document.getElementById("searchButton").onclick=this.filterProducts.bind(this);
         let products = await this.#getProducts();
         let grid = document.getElementById("productGrid");
         let stringHTML = "";
-        products.forEach(element => {
+        products.forEach(product => {
             stringHTML += `
-            <a href="./?c=product&a=display&id=${element.id}">
+            <a href="./?c=product&a=display&id=${product.id}">
                 <div class="gridItem">
-                    <img src="public/images/${element.thumbnail}" alt="${element.name}">
-                    <p><span class="productName">${element.name}</span></p>
-                    <p><span class="productPrice">${element.price}</span></p>
+                    <img src="public/images/${product.thumbnail}" alt="${product.name}">
+                    <p><span class="productName">${product.name}</span></p>
+                    <p><span class="productPrice">${product.price}</span></p>
+                </div>
+            </a>
+            `
+        });
+        grid.innerHTML = stringHTML;
+    }
+
+    async filterProducts() {
+        let products = await this.#getProducts();
+        let checkboxesSize = document.querySelectorAll('input[name="sizes"]:checked');
+        let checkboxesColour = document.querySelectorAll('input[name="colours"]:checked');
+        let sizes = [];
+        let colours = [];
+        let result = [];
+        checkboxesSize.forEach(size => {
+            sizes.push(size);
+        });
+        checkboxesColour.forEach(colour => {
+            colours.push(colour);
+        });
+
+        products.forEach(product => {
+            if (colours.length > 0) {
+                let isOfSelectedColour = false;
+                colours.forEach(colour => {
+                    isOfSelectedColour = isOfSelectedColour || product.colour === colour.value;
+                });
+                if (isOfSelectedColour) result.push(product);
+            } else {
+                result.push(product);
+            }
+        });
+
+        let grid = document.getElementById("productGrid");
+        let stringHTML = "";
+        result.forEach(product => {
+            stringHTML += `
+            <a href="./?c=product&a=display&id=${product.id}">
+                <div class="gridItem">
+                    <img src="public/images/${product.thumbnail}" alt="${product.name}">
+                    <p><span class="productName">${product.name}</span></p>
+                    <p><span class="productPrice">${product.price}</span></p>
                 </div>
             </a>
             `
