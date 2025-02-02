@@ -37,9 +37,10 @@
                 <h3>Odkazy</h3>
                 <a href="<?= $link->url("home.faq") ?>">FAQ</a>
                 <a>Kontakt</a>
+                <a href="<?= $link->url("basket.index") ?>">Košík</a>
                 <a href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
-                <a href="<?= $link->url("auth.register") ?>">Registrácia</a>
                 <a href="<?= $link->url("auth.logout") ?>">Odhlásenie</a>
+                <a href="<?= $link->url("auth.register") ?>">Registrácia</a>
             </div>
             <div class="outsideLinks">
                 <h3>Sociálne siete</h3>
