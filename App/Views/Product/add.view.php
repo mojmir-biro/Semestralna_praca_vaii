@@ -1,6 +1,8 @@
 <div class="container">
-    
-    Pridanie produktu<br>
+
+    <div class="productActionHeader">
+        Pridanie produktu
+    </div>
     <?php require 'form.view.php'?>
 
 </div>

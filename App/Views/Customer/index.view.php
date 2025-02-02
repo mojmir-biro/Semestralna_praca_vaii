@@ -51,7 +51,11 @@ $layout = 'root';
             <?
         }
         if ($counter === 0) {
-            ?><h2>Žiadne objednávky</h2><?
+            ?>
+            <div class="order">
+                <h2>Žiadne objednávky</h2>
+            </div>
+            <?
         }
         ?>
     </div>

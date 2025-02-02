@@ -116,7 +116,7 @@ class BasketController extends AControllerBase
         $basket = Basket::getOne($bi->getBasketId());
 
         if ($basket->getCustomerId() === $user->getId()) {
-            $this->removeBasketItem($basketItemId);
+            $this->removeBasketItem($basketItemId, true);
             return $this->redirect($this->url('basket.index'));
         } else {
             throw new HTTPException(403);
@@ -130,7 +130,7 @@ class BasketController extends AControllerBase
         $basketId = $this->app->getRequest()->getValue('id');
         $basket = Basket::getOne($basketId);
         if ($basket->getCustomerId() === $user->getId()) {
-            $this->deleteBasket($basketId);
+            $this->deleteBasket($basketId, true);
             return $this->redirect($this->url('basket.index'));
         } else {
             throw new HTTPException(403);
@@ -154,27 +154,29 @@ class BasketController extends AControllerBase
                 $orderItem->setOrderId($order->getId());
                 $orderItem->save();
             }
-            $this->deleteBasket($basketId);
+            $this->deleteBasket($basketId, false);
             return $this->redirect($this->url('customer.index'));
         } else {
             throw new HTTPException(403);
         }
     }
 
-    private function removeBasketItem(int $basketItemId): void
+    private function removeBasketItem(int $basketItemId, bool $restockItems): void
     {
         $bi = BasketItem::getOne($basketItemId);
-        $prodSize = ProductSize::getOne($bi->getProductSizeId());
-        $prodSize->setQuantity($prodSize->getQuantity() + $bi->getQuantity());
-        $prodSize->save();
+        if ($restockItems) {
+            $prodSize = ProductSize::getOne($bi->getProductSizeId());
+            $prodSize->setQuantity($prodSize->getQuantity() + $bi->getQuantity());
+            $prodSize->save();
+        }
         $bi->delete();
     }
 
-    private function deleteBasket(int $basketId): void
+    private function deleteBasket(int $basketId, bool $restockItems): void
     {
         $basketItems = BasketItem::getAll('`basketId` = ?', [$basketId]);
         foreach ($basketItems as $bi) {
-            $this->removeBasketItem($bi->getId());
+            $this->removeBasketItem($bi->getId(), $restockItems);
         }
         $basket = Basket::getOne($basketId);
         $basket->delete();

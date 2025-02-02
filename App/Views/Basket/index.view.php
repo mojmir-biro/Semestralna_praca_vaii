@@ -52,13 +52,17 @@ use App\Models\ProductSize;
             
         }
         if ($counter === 0) { ?>
-            <h2>Košík je prázdny</h2>
+            <div class="basketSummary">
+                Košík je prázdny
+            </div>
             </div>
         <? } else { ?>
+            <div class="basketSummary">
+                Cena celkom: <?= $sumPrice ?>
+                <a href="<?= $link->url('basket.confirm', ['id' => $basket->getId()]) ?>"><button>Objednať</button></a>
+                <a href="<?= $link->url('basket.delete', ['id' => $basket->getId()]) ?>"><button>Vyprázdniť košík</button></a>
             </div>
-            Cena celkom: <?= $sumPrice ?>
-            <a href="<?= $link->url('basket.confirm', ['id' => $basket->getId()]) ?>"><button>Objednať</button></a>
-            <a href="<?= $link->url('basket.delete', ['id' => $basket->getId()]) ?>"><button>Vyprázdniť košík</button></a>
+            </div>
         <? }
     }
     ?>
