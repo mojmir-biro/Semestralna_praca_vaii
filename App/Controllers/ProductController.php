@@ -25,6 +25,7 @@ class ProductController extends AControllerBase
     {
         switch ($action) {
             case 'getJson':
+            case 'getSizesJson':
             case 'display':
                 return true;
             default:
@@ -50,6 +51,12 @@ class ProductController extends AControllerBase
     public function getJson(): Response
     {
         return $this->json(Product::getAll());
+    }
+
+    public function getSizesJson(): Response
+    {
+        $id = (int)$this->app->getRequest()->getValue('id');
+        return $this->json(ProductSize::getAll('`productId` = ?', [$id], orderBy: '`id` asc'));
     }
 
     public function add(): Response
