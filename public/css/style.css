@@ -388,15 +388,62 @@ a {
 .prodDescAndPrice {
     display: flex;
     flex-direction: column-reverse;
+    font-size: 25px;
+}
+
+.prodDescAndPrice form button, .prodDescAndPrice form select{
+    font-size: 25px;
 }
 
 .productPricing {
-    
+    border-bottom: 2px dashed var(--containerBgColour);
+    padding-bottom: 5px;
 }
 
 .productActionHeader {
     font-size: 25px;
     font-weight: bold;
+}
+
+.sizes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sizeFilterItem {
+    display: flex;
+    flex-shrink: 1;
+    flex-basis: 50%;
+    width: 50%;
+}
+
+.sizeFilterItem input {
+    width: 20px;
+    margin: 2px;
+    background-color: red;
+    flex-basis: 20px;
+    padding: auto;
+}
+
+.sizeFilterItem label {
+    width: max-content;
+}
+
+.prodDescAndPrice .spacer {
+    max-height: 0;
+    margin: 0;
+}
+
+.customerAttributes {
+    display: grid;
+    grid-template-columns: min-content auto;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.customerAttributes, .customerAttributes input, .customerAttributes select {
+    font-size: 25px;
 }
 
 @media screen and (min-width: 660px) {
@@ -499,6 +546,10 @@ a {
         font-size: 16px;
     }
 
+    .prodDescAndPrice form button, .prodDescAndPrice form select { 
+        font-size: 16px;
+    }
+
     .basketItem {
         flex-direction: column;
         font-size: 16px;
@@ -539,6 +590,22 @@ a {
     .productActionHeader {
         font-size: 16px;
     }
+
+    .prodDescAndPrice {
+        font-size: 16px;
+    }
+
+    .prodDescAndPrice button, .prodDescAndPrice select {
+        font-size: 16px;
+    }
+
+    .customerAttributes {
+        grid-template-columns: max-content auto;
+    }
+
+    .customerAttributes, .customerAttributes input, .customerAttributes select {
+        font-size: 16px;
+    }
 }
 
 @media screen and (min-width: 970px) {
@@ -553,6 +620,22 @@ a {
 
     .prodDescAndPrice {
         flex-direction: column;
+        padding-left: 10px;
+        align-items: stretch;
+    }
+
+    .produtDescription {
+        flex-grow: 1;
+    }
+
+    .prodDescAndPrice .spacer {
+        max-height: 100%;
+        flex-grow: 1;
+    }
+
+    .productPricing {
+        border-bottom-width: 0px;
+        padding-bottom: 0px;
     }
 }
 

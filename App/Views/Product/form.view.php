@@ -14,8 +14,6 @@ $layout = 'root';
         <input required type="text" name="price" id="price" value="<?= @$data['product']?->getPrice() ?>">
         <label for="colour">Farba</label>
         <input type="text" name="colour" id="colour" value="<?= @$data['product']?->getColour() ?>">
-        <label for="thumbnail">Titulný obrázok:</label>
-        <input required type="text" name="thumbnail" id="thumbnail" value="<?= @$data['product']?->getThumbnail() ?>">
 
         <label for="image">Obrázok</label>
         <input type="file" id="image" name="image" accept="image/png, image/jpeg"/>

@@ -23,9 +23,10 @@ $layout = 'root';
                     Popis produktu<br>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, modi neque dignissimos exercitationem vitae porro illo qui eaque. Sequi, neque cumque. Laudantium nobis voluptatem aperiam, a fugiat minima ad consectetur?
                 </div>
+                <p class="spacer"></p>
                 <div class="productPricing">
                     <form action="<?= $link->url('basket.add', ["id" => @$data['product']?->getId()])?>" method="post">
-                        <?= @$data['product']?->getPrice() ?>€
+                        <?= @$data['product']?->getPrice() ?>€<br>
                         <label for="size">Veľkosť</label>
                         <select name="size" id="size">
                             <?php foreach ($productSizes as $ps): ?>

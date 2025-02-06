@@ -23,8 +23,9 @@ use App\Models\ProductSize;
     $baskets = Basket::getAll('`customerId` = ?', [$user->getId()]);
     if (sizeof($baskets) === 0) { ?>
     <div class="basketItems">
-        <h2>Košík je prázdny</h2>
-
+        <div class="basketSummary">
+            Košík je prázdny
+        </div>
     </div>
     <? } else {
         $basket = $baskets[0];

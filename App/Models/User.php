@@ -11,6 +11,10 @@ class User extends Model
     protected ?string $name;
     protected ?string $pass;
     protected ?string $role;
+    protected ?string $country;
+    protected ?string $city;
+    protected ?string $street;
+    protected ?string $postalCode;
 
     public function getId(): ?int
     {
@@ -55,5 +59,45 @@ class User extends Model
     public function setRole(string $role): void
     {
         $this->role = $role;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): void
+    {
+        $this->country = $country;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): void
+    {
+        $this->city = $city;
+    }
+
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    public function setStreet(string $street): void
+    {
+        $this->street = $street;
+    }
+
+    public function getPostalCode(): ?string
+    {
+        return $this->postalCode;
+    }
+
+    public function setPostalCode(string $postalCode): void
+    {
+        $this->postalCode = $postalCode;
     }
 }

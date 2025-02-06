@@ -87,9 +87,8 @@ class ProductController extends AControllerBase
         $price = (double)$this->request()->getValue('price');
         $name = strip_tags($this->request()->getValue('productName'));
         $colour = strip_tags($this->request()->getValue('colour'));
-        $thumbnail = strip_tags($this->request()->getValue('thumbnail'));
 
-        if ($price == 0 || $name == '' || $thumbnail == '' || $colour == '') {
+        if ($price == 0 || $name == '' || $colour == '') {
             return new RedirectResponse($this->url("admin.index", ['result' => 'Required field/s not filled']));
         }
         
@@ -123,24 +122,21 @@ class ProductController extends AControllerBase
         $product->setPrice($price);
         $product->setName($name);
         $product->setColour($colour);
-        $product->setThumbnail($thumbnail);
 
-        /*
-        //$filename = $this->request()->getValue('image');
-        //$filename = $_POST['image'];
-        $filename = $_FILES['image']['name'];
-        $img = file_get_contents($filename);
-        if ($img === false) {
-            if (!($id > 0)) {
-                return new RedirectResponse($this->url("admin.index", ['result' => 'Image field not filled']));
+        $filename = $this->request()->getFiles()['image']['name'];
+        if ($id > 0) {
+            if (strlen($filename) > 0) {
+                if (!move_uploaded_file($this->request()->getFiles()['image']['tmp_name'], './public/images/' . $filename)) {
+                    return $this->redirect($this->url('admin.index', ['result' => 'Image upload failed']));
+                }
+                $product->setThumbnail($filename);
             }
         } else {
-            $folder = '../../public/images/';
-            file_put_contents($folder . $filename, $img);
+            if (!move_uploaded_file($this->request()->getFiles()['image']['tmp_name'], './public/images/' . $filename)) {
+                return $this->redirect($this->url('admin.index', ['result' => 'Image upload failed']));
+            }
             $product->setThumbnail($filename);
         }
-        */
-
         $product->save();
         $id = $product->getId();
 
