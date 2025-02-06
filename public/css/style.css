@@ -446,7 +446,21 @@ a {
     font-size: 25px;
 }
 
+.noFilteredProducts {
+    font-size: 25px;
+    background-color: var(--barColour);
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    height: 50vh;
+    vertical-align: middle;
+}
+
 @media screen and (min-width: 660px) {
+    .noFilteredProducts {
+        font-size: 16px;
+    }
+
     .productImage img {
         width: 500px;
         height: 500px;

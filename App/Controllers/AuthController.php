@@ -116,6 +116,7 @@ class AuthController extends AControllerBase
             $registered->setEmail($email);
             $registered->setPass(password_hash($pass, PASSWORD_DEFAULT));
             $registered->setRole('customer');
+            $registered->setCountry('NO_VAL');
             $registered->save();
             
             $data = (['message' => 'Registrácia úspešná']);

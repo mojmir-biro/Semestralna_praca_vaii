@@ -93,6 +93,7 @@ class ProductGetter {
 
         let grid = document.getElementById("productGrid");
         let stringHTML = "";
+        let counter = 0;
         products.forEach(product => {
             stringHTML += `
             <a href="./?c=product&a=display&id=${product.id}">
@@ -102,8 +103,17 @@ class ProductGetter {
                     <p><span class="productPrice">${product.price}</span></p>
                 </div>
             </a>
-            `
+            `;
+            counter++;
         });
+        if (counter === 0) {
+            stringHTML = 
+            `
+            <div class="noFilteredProducts">
+                Filtrom nevyhovujú žiadne produkty
+            </div>
+            `;
+        }
         grid.innerHTML = stringHTML;
     }
 }
